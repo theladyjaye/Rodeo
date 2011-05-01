@@ -1,7 +1,0 @@
-Experiment
-Testing "No Account" Accounts
-Requires: 
-
-Python
-Tornado
-Redis
