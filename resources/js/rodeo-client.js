@@ -15,6 +15,8 @@ rodeo.client.Client = function()
 	else
 	{
 		this.id = this.persistentStore.getId();
+		this.cleanup()
+		this.sync()
 		this._isNewAccount = false;
 	}
 }
@@ -27,6 +29,18 @@ rodeo.client.Client.prototype.isNewAccount = function()
 rodeo.client.Client.prototype.hasAccount = function()
 {
 	return !(typeof this.persistentStore.getId() == "undefined");
+}
+
+rodeo.client.Client.prototype.cleanup = function()
+{
+	// check our persistent store for any expired events
+	// if we find some, kill em
+}
+
+rodeo.client.Client.prototype.sync = function()
+{
+	// check the server for any new event id's
+	// if we have new stuff update the persistentStore with that info.
 }
 
 rodeo.client.Client.prototype.createAccount = function()
