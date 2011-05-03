@@ -1,0 +1,30 @@
+.modal{ 
+	//display:none; 
+	
+	@include boxshadow(#000, 0, 0, 10px);
+	@include corner(10px);
+	background:rgba(0, 53, 140, 0.3);
+	padding:10px;
+	
+	&.alert{
+		width:320px;
+		h3 { 
+			color:#fff;
+			margin:0;
+			padding:0 0 10px 0;
+			font-size:14px;
+		}
+		p{
+			color:#fff;
+			margin:0;
+			padding:0 0 10px 0;
+		}
+		.button{
+			@include corner();
+			cursor:pointer;
+			background:#fefefe;
+			text-align:center;
+			padding:10px;
+		}
+	}
+}
