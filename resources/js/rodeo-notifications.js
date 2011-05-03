@@ -3,9 +3,16 @@ rodeo.notifications = { }
 rodeo.notifications.alert = function(object)
 {
 	var template = $("#modal-alert").html();
-	var model = {"title"   : (typeof object.title       == "undefined" ? "Alert" : object.title),
-	             "message" : (typeof object.message     == "undefined" ? "Something happened" : object.message),
-	             "label"   : (typeof object.buttonLabel == "undefined" ? "Ok" : object.buttonLabel)}
+	var model = {"title"   : "Alert",
+	             "message" : "Something happened. Just letting ya know about it",
+	             "label"   : "Ok"};
+	if(object)
+	{
+		model.title = (typeof object.title       == "undefined" ? model.title : object.title)
+		model.title = (typeof object.message     == "undefined" ? model.message : object.message)
+		model.title = (typeof object.buttonLabel == "undefined" ? model.buttonLabel : object.buttonLabel)
+	}
+	
 	var view = $(Mustache.to_html(template, model));
 	
 	view.modal({closeClass:".actions .button",
@@ -15,5 +22,6 @@ rodeo.notifications.alert = function(object)
 
 rodeo.notifications.confirmation = function(object)
 {
+	var template = $("#modal-confirmation").html();
 	alert(object.message);
 }

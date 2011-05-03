@@ -4,7 +4,7 @@ rodeo.application = { }
 $(document).ready(function()
 {	
 	var client = null;
-	
+	rodeo.notifications.alert();
 	if(rodeo.utils.localStorage())
 	{
 		client = new rodeo.client.Client();
