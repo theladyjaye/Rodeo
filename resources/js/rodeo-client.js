@@ -41,6 +41,7 @@ rodeo.client.Client.prototype.sync = function()
 {
 	// check the server for any new event id's
 	// if we have new stuff update the persistentStore with that info.
+	// set last login here
 }
 
 rodeo.client.Client.prototype.createAccount = function()

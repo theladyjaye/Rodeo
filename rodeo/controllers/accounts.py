@@ -1,10 +1,13 @@
 import rodeo
 import rodeo.controllers
-import uuid
 import json
+from rodeo.users import User
 
 class RegisterController (rodeo.controllers.DefaultController):
 	
 	def get(self):
-		self.write(json.dumps({"ok":True, "uuid":str(uuid.uuid4())}))
+		user = User()
+		user.add()
+		self.write(json.dumps({"ok":True, "uuid":user.id}))
+		
 		

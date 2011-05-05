@@ -8,9 +8,9 @@ rodeo.notifications.alert = function(object)
 	             "label"   : "Ok"};
 	if(object)
 	{
-		model.title = (typeof object.title       == "undefined" ? model.title : object.title)
-		model.title = (typeof object.message     == "undefined" ? model.message : object.message)
-		model.title = (typeof object.buttonLabel == "undefined" ? model.buttonLabel : object.buttonLabel)
+		model.title       = (typeof object.title       == "undefined" ? model.title : object.title)
+		model.message     = (typeof object.message     == "undefined" ? model.message : object.message)
+		model.buttonLabel = (typeof object.buttonLabel == "undefined" ? model.buttonLabel : object.buttonLabel)
 	}
 	
 	var view = $(Mustache.to_html(template, model));

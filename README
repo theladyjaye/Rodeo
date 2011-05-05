@@ -3,8 +3,15 @@ Testing "No Account" Accounts
 Requires: 
 
 Python
-Tornado
-Redis
+http://www.python.org/
 
+Tornado
+http://www.tornadoweb.org/
+
+Redis
+http://redis.io/
+
+Python Redis Client (sudo pip install redis)
+https://github.com/andymccurdy/redis-py
 
 *THIS BRANCH IS NOT TO BE MERGED*
