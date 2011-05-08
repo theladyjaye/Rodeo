@@ -51,6 +51,17 @@ rodeo.client.Client.prototype.createAccount = function()
 	        "dataType": "json",
 	        "success": function(data){
 	                       scope.persistentStore.setId(data.uuid);
+                           scope.id = data.uuid;
 	                   }
+	       });
+}
+
+rodeo.client.Client.prototype.linkEmailAddress = function(email)
+{
+	var scope = this;
+	$.ajax({"url":"/register/" + scope.id,
+	        type:"POST",
+	        data: {"email":email},
+	        "dataType": "json",
 	       });
 }

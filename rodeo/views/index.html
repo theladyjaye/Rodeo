@@ -14,11 +14,36 @@
 	<script type="text/javascript" src="/resources/js/rodeo-storage.js"></script>
 	<script type="text/javascript" src="/resources/js/rodeo-client.js"></script>
 	<script type="text/javascript" src="/resources/js/rodeo-application.js"></script>
+	<script type="text/html" id="modal-welcome">
+		{% raw %}
+		<div class="modal alert">
+			<h2>Welcome to Rodeo</h2>
+			<div>
+				<p>We noticed that you didn't have a Rodeo account. We've gone ahead and created one for you!</p>
+				<p>Technology Rules!</p>
+				<p>If you would like, you can link an email address to your account. You don't have to, but you will be missing out on some benefits:</p>
+				<ul>
+					<li>Account Recover</li>
+					<li>Notifications from others in your event</li>
+				</ul>
+				<p>You can also do this later at any time</p>
+			</div>
+			<div>
+				<form>
+					<input type="text" name="email" placeholder="email address" size="45"/>
+				</form>
+			</div>
+			<div class="actions">
+				<div class="button">Ok</div>
+			</div>
+		</div>
+		{% endraw %}
+	</script>
 	<script type="text/html" id="modal-alert">
 		{% raw %}
 		<div class="modal alert">
 			<h3>{{title}}</h3>
-			<p>{{message}}</p>
+			<div>{{message}}</div>
 			<div class="actions">
 				<div class="button">{{label}}</div>
 			</div>

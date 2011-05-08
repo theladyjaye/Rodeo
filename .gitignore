@@ -1,2 +1,3 @@
 *.pyc
 *.css
+.sass-cache

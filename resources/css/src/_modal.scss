@@ -1,3 +1,8 @@
+#simplemodal-container{
+	width:auto;
+	height:auto;
+}
+
 .modal{ 
 	//display:none; 
 	
@@ -7,18 +12,37 @@
 	padding:10px;
 	
 	&.alert{
-		width:320px;
-		h3 { 
+		width:300px;
+		h2 { 
 			color:#fff;
 			margin:0;
 			padding:0 0 10px 0;
-			font-size:14px;
+			font-size:16px;
 		}
+		
+		div{
+		    padding-bottom:10px;
+		}
+		
+		div.actions{
+		    padding-bottom:0px;
+		}
+		
 		p{
 			color:#fff;
 			margin:0;
 			padding:0 0 10px 0;
 		}
+		
+		ul{
+			padding-bottom:5px;
+		}
+		
+		ul li{
+			color:#fff;
+			padding-bottom:5px;
+		}
+		
 		.button{
 			@include corner();
 			cursor:pointer;

@@ -10,11 +10,15 @@ $(document).ready(function()
 		if(client.isNewAccount())
 		{
 			// notify the user they need an account
-			var data = {"title"       : "Welcome to Rodeo",
-				        "message"     : "We noticed that you didn't have a Rodeo account. We've gone ahead and created one for you! Technology rules!",
-			            "buttonLabel" : "Close"}
+			var data = {"notificationWillClose": function(alert){
+				var email = alert.find("input").val();
+				if(email.length > 0)
+				{
+					client.linkEmailAddress(email);
+				}
+			}}
 			
-			rodeo.notifications.alert(data);
+			rodeo.notifications.alert(data, "#modal-welcome");
 			// maybe here we provide the option of associating an email address with the uuid so recovery becomes possible.
 		}
 	}

@@ -11,7 +11,34 @@ http://www.tornadoweb.org/
 Redis
 http://redis.io/
 
+PostgreSQL
+http://www.postgresql.org/
+
+Python PostgreSQL Client - psycopg (sudo pip install psycopg)
+http://initd.org/psycopg/
+
 Python Redis Client (sudo pip install redis)
 https://github.com/andymccurdy/redis-py
+
+
+CREATE TABLE "public"."<table_name>" (
+	"id" uuid NOT NULL,
+	"email" varchar(255),
+	"last_login" varchar(19) NOT NULL,
+	"created_on" varchar(19) NOT NULL,
+	CONSTRAINT "user_pkey" PRIMARY KEY ("id") NOT DEFERRABLE INITIALLY IMMEDIATE,
+	CONSTRAINT "unique_id" UNIQUE ("id") NOT DEFERRABLE INITIALLY IMMEDIATE,
+	CONSTRAINT "unique_email" UNIQUE ("email") NOT DEFERRABLE INITIALLY IMMEDIATE
+)
+WITH (OIDS=FALSE);
+ALTER TABLE "public"."<table_name>" OWNER TO "dev";
+CREATE UNIQUE INDEX "index_email" ON "public"."<table_name>" USING btree(email ASC NULLS LAST);
+CREATE UNIQUE INDEX "index_id" ON "public"."<table_name>" USING btree("id" ASC NULLS LAST);
+
+
+
+
+
+
 
 *THIS BRANCH IS NOT TO BE MERGED*

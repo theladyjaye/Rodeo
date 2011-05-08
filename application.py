@@ -16,9 +16,13 @@ settings = {
 application = tornado.web.Application([
 	(r"/", MainController),
 	(r"/register", RegisterController),
+	(r"/register/([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})", RegisterController),
 	#(".*", CatchAllHandler),
 ], **settings)
 
 if __name__ == "__main__":
 	application.listen(8080)
 	tornado.ioloop.IOLoop.instance().start()
+	
+	
+	
