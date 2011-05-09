@@ -6,6 +6,7 @@ import tornado.web
 
 from rodeo.controllers.main import MainController
 from rodeo.controllers.accounts import RegisterController
+from rodeo.controllers.accounts import SyncController
 
 
 settings = {
@@ -16,7 +17,8 @@ settings = {
 application = tornado.web.Application([
 	(r"/", MainController),
 	(r"/register", RegisterController),
-	(r"/register/([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})", RegisterController),
+	(r"/register/([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})/sync-token/?$", SyncController),
+	(r"/register/([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})/?$", RegisterController),
 	#(".*", CatchAllHandler),
 ], **settings)
 

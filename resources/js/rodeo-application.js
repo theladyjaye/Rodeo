@@ -1,6 +1,5 @@
 var rodeo = rodeo || { }
 rodeo.application = { }
-
 $(document).ready(function()
 {	
 	var client = null;
@@ -21,6 +20,10 @@ $(document).ready(function()
 			rodeo.notifications.alert(data, "#modal-welcome");
 			// maybe here we provide the option of associating an email address with the uuid so recovery becomes possible.
 		}
+		
+		$("#action-sync").click(function(e){
+			client.beginSyncProcess();
+		})
 	}
 	else
 	{

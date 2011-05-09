@@ -5,7 +5,6 @@
 
 .modal{ 
 	//display:none; 
-	
 	@include boxshadow(#000, 0, 0, 10px);
 	@include corner(10px);
 	background:rgba(0, 53, 140, 0.3);
@@ -17,7 +16,7 @@
 			color:#fff;
 			margin:0;
 			padding:0 0 10px 0;
-			font-size:16px;
+			font-size:14px;
 		}
 		
 		div{
@@ -46,9 +45,59 @@
 		.button{
 			@include corner();
 			cursor:pointer;
-			background:#fefefe;
+			background:#fff;
+			color:#012a4a;
+			font-weight:bold;
 			text-align:center;
 			padding:10px;
 		}
+	}
+	
+	&.sync{
+		overflow:hidden;
+		position:relative;
+		
+		ul{
+			width:1000px;
+		}
+		
+		ul li{
+			width:300px;
+			float:left;
+			margin-right:10px;
+		}
+		
+		ul li .loader{
+			float:right;
+		}
+		
+		.step{
+			display:none;
+		}
+		
+		#device-account{
+			input{
+				margin-bottom:15px;
+			}
+		}
+		
+		
+		.token{
+			font-size:18px;
+			padding:15px 0;
+			background-color:#fef5c2;
+			text-align:center;
+			display:none;
+			color:#000;
+			margin-bottom:15px;
+			@include corner();
+		}
+		.complete{
+
+		}
+		
+		.button{
+				margin-bottom:10px;
+			}
 	}
 }

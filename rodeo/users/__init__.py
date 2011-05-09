@@ -1,6 +1,7 @@
 import uuid
 from datetime import datetime
 import psycopg2
+from rodeo.data import token_register_uuid
 from rodeo.data.queries import UserNewQuery
 from rodeo.data.queries import UserSelectQuery
 from rodeo.data.queries import UserLinkEmailQuery
@@ -17,8 +18,14 @@ class User(object):
             
             if len(query) > 0:
                 self.id = id
+            else:
+                raise Exception("invalid user id")
 
-    def linkEmailAddress(self, email):
+    def get_sync_token(self):
+        return token_register_uuid(self.id)
+        
+        
+    def link_email_address(self, email):
         try:
             query = UserLinkEmailQuery(user_id=self.id, email=email)
             query.execute()

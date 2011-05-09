@@ -5,8 +5,6 @@ from rodeo.users import User
 from rodeo.forms import Form
 from rodeo.forms.validators import EmailValidator
 
-
-
 class RegisterController (rodeo.controllers.DefaultController):
 
     def prepare(self):
@@ -25,12 +23,24 @@ class RegisterController (rodeo.controllers.DefaultController):
             form.addValidator(EmailValidator(value=email, required=True))
             
             if form.is_valid():
-                if user.linkEmailAddress(email) is False:
+                if user.link_email_address(email) is False:
                     self.write(json.dumps({"ok":False, "message":"email address is already taken"}))
                     return
                                     
                 self.write(json.dumps({"ok":True, "email":email}))
             else:
                 self.write(json.dumps({"ok":False, "message":"could not link email address. invalid format"}))
+        else:
+            self.write(json.dumps({"ok":False, "message":"invalid user"}))
+
+class SyncController (rodeo.controllers.DefaultController):
+    def prepare(self):
+        self.set_header("Content-Type", "text/json")
+    
+    def get(self, uuid):
+        user = User(uuid)
+        if user.id is not None:
+            token = user.get_sync_token()
+            self.write(json.dumps({"ok":True, "token":token}))  
         else:
             self.write(json.dumps({"ok":False, "message":"invalid user"}))
